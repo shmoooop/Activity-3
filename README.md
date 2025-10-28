@@ -1,4 +1,4 @@
-Digital Bookshelf 📚
+Digital Bookshelf + API
 
 A full-stack web application for managing a digital collection of books, authors, and categories. Built with React for the frontend and NestJS for the backend, designed with beginner-friendly code.
 
@@ -142,3 +142,4 @@ Project Structure 📁
     │   └── main.css    # All application styles
     ├── package.json    # Configures start script (port 3001) and proxy (to port 3000)
     └── tsconfig.json
+
