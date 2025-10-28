@@ -1,0 +1,247 @@
+// 1. We have REMOVED the local 'Book' type from this file.
+// Our central 'Book' type in 'src/utils/normalize.ts' is now the single source of truth.
+
+const sampleBooks = [
+  {
+    id: 1,
+    title: 'The Great Adventure',
+    author: 'A. Journey',
+    publicationYear: 2010,
+    genre: 'Adventure',
+    description: 'A fast-paced tale of exploration and courage across unknown lands. A fast-paced tale of exploration and courage across unknown lands. ',
+    coverUrl: '',
+    isbn: '978-0307277671',
+    pages: 352,
+    publisher: 'Summit Press'
+  },
+  {
+    id: 2,
+    title: 'Quiet Minds',
+    author: 'Evelyn Hart',
+    publicationYear: 2018,
+    genre: 'Literary Fiction',
+    description: 'An intimate portrait of family, memory, and the small moments that change us.',
+    coverUrl: '',
+    isbn: '978-0143127741',
+    pages: 288,
+    publisher: 'Blue Oak'
+  },
+  {
+    id: 3,
+    title: 'Mastering TypeScript',
+    author: 'R. Collins',
+    publicationYear: 2021,
+    genre: 'Programming',
+    description: 'A practical guide to modern TypeScript patterns and best practices.',
+    coverUrl: '',
+    isbn: '978-1492053743',
+    pages: 420,
+    publisher: 'TechBooks'
+  },
+  {
+    id: 4,
+    title: 'Gardens of Time',
+    author: 'L. Rivera',
+    publicationYear: 2005,
+    genre: 'Historical Fiction',
+    description: 'A sweeping novel about love and loss set against a changing countryside.',
+    coverUrl: '',
+    isbn: '978-0679760801',
+    pages: 512,
+    publisher: 'Harbor House'
+  },
+  {
+    id: 5,
+    title: 'Principles of Design',
+    author: 'M. Shaw',
+    publicationYear: 2016,
+    genre: 'Design',
+    description: 'Fundamental concepts and practical advice for great product and visual design.',
+    coverUrl: '',
+    isbn: '978-0321127426',
+    pages: 256,
+    publisher: 'Crafted Media'
+  },
+  {
+    id: 6,
+    title: 'The Last Harbor',
+    author: 'C. Monroe',
+    publicationYear: 1999,
+    genre: 'Mystery',
+    description: 'A coastal town hides secrets; one detective will uncover the truth.',
+    coverUrl: '',
+    isbn: '978-0452284234',
+    pages: 304,
+    publisher: 'Northwind'
+  },
+  {
+    id: 7,
+    title: 'Cooking Lightly',
+    author: 'S. Patel',
+    publicationYear: 2020,
+    genre: 'Cooking',
+    description: 'Simple, flavorful recipes with an emphasis on fresh ingredients and quick prep.',
+    coverUrl: '',
+    isbn: '978-1607741234',
+    pages: 192,
+    publisher: 'Greenfork'
+  },
+  {
+    id: 8,
+    title: 'Spacebound',
+    author: 'D. Kim',
+    publicationYear: 2014,
+    genre: 'Science Fiction',
+    description: 'A gripping voyage beyond the solar system and the fragile ties of home.',
+    coverUrl: '',
+    isbn: '978-0553382563',
+    pages: 368,
+    publisher: 'Orbit Books'
+  },
+  {
+    id: 9,
+    title: 'Mindful Every Day',
+    author: 'P. Nguyen',
+    publicationYear: 2019,
+    genre: 'Self-Help',
+    description: 'Short practices and reflections to bring awareness and calm into your routine.',
+    coverUrl: '',
+    isbn: '978-1101994891',
+    pages: 160,
+    publisher: 'Beacon'
+  },
+  {
+    id: 10,
+    title: 'The Architect',
+    author: 'J. Anders',
+    publicationYear: 2008,
+    genre: 'Thriller',
+    description: 'A high-stakes thriller about creation, obsession, and the cost of ambition.',
+    coverUrl: '',
+    isbn: '978-0307269997',
+    pages: 400,
+    publisher: 'Crown'
+  },
+  {
+    id: 11,
+    title: 'A Pocket of Stars',
+    author: 'R. Gomez',
+    publicationYear: 2012,
+    genre: 'Young Adult',
+    description: 'Coming-of-age story about friendship, courage, and finding your place in the world.',
+    coverUrl: '',
+    isbn: '978-0062087753',
+    pages: 304,
+    publisher: 'HarperTeen'
+  },
+  {
+    id: 12,
+    title: 'Learning React',
+    author: 'K. Hernandez',
+    publicationYear: 2022,
+    genre: 'Programming',
+    description: 'Updated guide to building modern web apps with React and TypeScript.',
+    coverUrl: '',
+    isbn: '978-1492051725',
+    pages: 480,
+    publisher: 'CodeCraft'
+  },
+  {
+    id: 13,
+    title: 'Rivers & Roads',
+    author: 'O. Bennett',
+    publicationYear: 2001,
+    genre: 'Travel',
+    description: 'A travel memoir following small towns, long drives, and quiet discoveries.',
+    coverUrl: '',
+    isbn: '978-0385490818',
+    pages: 276,
+    publisher: 'Moonlight Press'
+  },
+  {
+    id: 14,
+    title: 'The Herbalist',
+    author: 'M. Alston',
+    publicationYear: 1995,
+    genre: 'Nonfiction',
+    description: 'A practical compendium of herbs, remedies, and simple health practices.',
+    coverUrl: '',
+    isbn: '978-0892817499',
+    pages: 224,
+    publisher: 'Earthwise'
+  },
+  {
+    id: 15,
+    title: 'Neon City',
+    author: 'T. Zhao',
+    publicationYear: 2023,
+    genre: 'Cyberpunk',
+    description: 'A neon-soaked future where memory is currency and the city never sleeps.',
+    coverUrl: '',
+    isbn: '978-1250899165',
+    pages: 344,
+    publisher: 'Dawnfall'
+  },
+  {
+    id: 16,
+    title: 'Hidden Figures',
+    author: 'S. Carter',
+    publicationYear: 2017,
+    genre: 'Biography',
+    description: 'Profiles of unsung innovators whose work changed the course of history.',
+    coverUrl: '',
+    isbn: '978-0385353670',
+    pages: 384,
+    publisher: 'Legacy Books'
+  },
+  {
+    id: 17,
+    title: "The Pianist's Lament",
+    author: 'V. Rossi',
+    publicationYear: 2003,
+    genre: 'Drama',
+    description: 'A moving exploration of art, sacrifice, and the price of genius.',
+    coverUrl: '',
+    isbn: '978-0743273565',
+    pages: 312,
+    publisher: 'Peninsula'
+  },
+  {
+    id: 18,
+    title: 'Algorithms Unlocked',
+    author: 'N. Patel',
+    publicationYear: 2015,
+    genre: 'Computer Science',
+    description: 'A gentle introduction to algorithms and how they shape computation.',
+    coverUrl: '',
+    isbn: '978-0262518802',
+    pages: 208,
+    publisher: 'MIT Press'
+  },
+  {
+    id: 19,
+    title: 'Echoes of the Valley',
+    author: 'H. Kaur',
+    publicationYear: 2007,
+    genre: 'Drama',
+    description: 'Interwoven lives in a small valley town where every secret reverberates.',
+    coverUrl: '',
+    isbn: '978-0441013593',
+    pages: 336,
+    publisher: 'Riverbend'
+  },
+  {
+    id: 20,
+    title: "The Beginner's Guide to Photography",
+    author: 'L. Morgan',
+    publicationYear: 2011,
+    genre: 'Hobby',
+    description: 'Practical techniques and creative exercises for novice photographers.',
+    coverUrl: '',
+    isbn: '978-1592537255',
+    pages: 200,
+    publisher: 'Aperture'
+  }
+];
+
+export default sampleBooks;
